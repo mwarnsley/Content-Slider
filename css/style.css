@@ -1,1 +1,22 @@
-ECHO is on.
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background: #333;
+	color: #fff;
+	font-family: 'Arial', sans-serif;
+	font-size: 14px;
+	line-height: 1.6em;
+}
+
+a{
+	color: #fff;
+	text-decoration: none;
+}
+
+h1{
+	margin-bottom: 20px;
+	text-align: center;
+}
