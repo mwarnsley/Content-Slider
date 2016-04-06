@@ -13,32 +13,19 @@ function slidingFunctionality(){
 	//show the first slide
 	$(".active").show();
 
-	$("#next").on("click", function(){
-		$(".active").removeClass("active").addClass("prevActive");
-		if($(".prevActive").is(":last-child")){
-			$(".slide").first().addClass("active");
-		}else{
-			$(".prevActive").next().addClass("active");
-		}
-		$(".prevActive").removeClass("prevActive");
-		$(".slide").fadeOut(speed);
-		$(".active").fadeIn(speed);
-	});
+	//next handler
+	$("#next").on("click", nextSlide);
 
-	$("#prev").on("click", function(){
-		$(".active").removeClass("active").addClass("prevActive");
-		if($(".prevActive").is(":first-child")){
-			$(".slide").last().addClass("active");
-		}else{
-			$(".prevActive").prev().addClass("active");
-		}
-		$(".prevActive").removeClass("prevActive");
-		$(".slide").fadeOut(speed);
-		$(".active").fadeIn(speed);
-	});
+	//previous handler
+	$("#prev").on("click", prevSlide);
 
+	//auto switch handler
 	if(autoswitch === true){
-		setInterval(function(){
+		setInterval(nextSlide, autoswitch_speed);
+	}
+
+	//functionality for the next slide
+	function nextSlide(){
 			$(".active").removeClass("active").addClass("prevActive");
 			if($(".prevActive").is(":last-child")){
 				$(".slide").first().addClass("active");
@@ -48,9 +35,23 @@ function slidingFunctionality(){
 			$(".prevActive").removeClass("prevActive");
 			$(".slide").fadeOut(speed);
 			$(".active").fadeIn(speed);
-		}, autoswitch_speed);
+	}
+
+	//functionality for previous slide
+	function prevSlide(){
+			$(".active").removeClass("active").addClass("prevActive");
+			if($(".prevActive").is(":first-child")){
+				$(".slide").last().addClass("active");
+			}else{
+				$(".prevActive").prev().addClass("active");
+			}
+			$(".prevActive").removeClass("prevActive");
+			$(".slide").fadeOut(speed);
+			$(".active").fadeIn(speed);
 	}
 
 }
 
 slidingFunctionality();
+
+
