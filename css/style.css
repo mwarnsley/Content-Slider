@@ -43,8 +43,31 @@ h1{
 	width: 980px;
 }
 
+.slide{
+	position: absolute;
+}
+
+.slide-copy{
+	background: #7f7f7f;
+	background: rgba(0,0,0,0.5);
+	bottom: 0;
+	left: 0;
+	padding: 20px;
+	position: absolute;
+}
+
 #prev, #next{
 	cursor: pointer;
 	float: left;
 	margin-top: 130px;
+	position: relative;
+	z-index: 100;
+}
+
+#prev{
+	margin-right: -45px;
+}
+
+#next{
+	margin-left: -45px;
 }
