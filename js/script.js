@@ -11,7 +11,20 @@ function slidingFunctionality(){
 	$(".slide").hide();
 
 	//show the first slide
-	
+	$(".active").show();
+
+	$("#next").on("click", function(){
+		$(".active").removeClass("active").addClass("prevActive");
+		if($(".prevActive").is(":last-child")){
+			$(".slide").first().addClass("active");
+		}else{
+			$(".prevActive").next().addClass("active");
+		}
+		$(".prevActive").removeClass("prevActive");
+		$(".slide").fadeOut(speed);
+		$(".active").fadeIn(speed);
+	});
+
 }
 
 slidingFunctionality();
