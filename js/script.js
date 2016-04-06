@@ -25,6 +25,32 @@ function slidingFunctionality(){
 		$(".active").fadeIn(speed);
 	});
 
+	$("#prev").on("click", function(){
+		$(".active").removeClass("active").addClass("prevActive");
+		if($(".prevActive").is(":first-child")){
+			$(".slide").last().addClass("active");
+		}else{
+			$(".prevActive").prev().addClass("active");
+		}
+		$(".prevActive").removeClass("prevActive");
+		$(".slide").fadeOut(speed);
+		$(".active").fadeIn(speed);
+	});
+
+	if(autoswitch === true){
+		setInterval(function(){
+			$(".active").removeClass("active").addClass("prevActive");
+			if($(".prevActive").is(":last-child")){
+				$(".slide").first().addClass("active");
+			}else{
+				$(".prevActive").next().addClass("active");
+			}
+			$(".prevActive").removeClass("prevActive");
+			$(".slide").fadeOut(speed);
+			$(".active").fadeIn(speed);
+		}, autoswitch_speed);
+	}
+
 }
 
 slidingFunctionality();
