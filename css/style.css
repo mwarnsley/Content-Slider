@@ -20,3 +20,31 @@ h1{
 	margin-bottom: 20px;
 	text-align: center;
 }
+
+#container{
+	margin: 40px auto;
+	overflow: hidden;
+	width: 980px;
+}
+
+#slider{
+	border: 2px solid #666;
+	border-radius: 5px;
+	float: left;
+	height: 350px;
+	overflow: hidden;
+	padding: 3px;
+	position: relative;
+	width: 940px;
+}
+
+#slider img{
+	height: 350px;
+	width: 980px;
+}
+
+#prev, #next{
+	cursor: pointer;
+	float: left;
+	margin-top: 130px;
+}
